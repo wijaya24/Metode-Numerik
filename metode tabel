@@ -3,6 +3,7 @@
 import numpy as np
 
 print ("METODE TABEL")
+# fungsi f(x)= x+e**x
 x_bawah = float(-0.6) #batas bawah
 x_atas = float(-0.5) #batas atas
 N = float(10) #iterasi

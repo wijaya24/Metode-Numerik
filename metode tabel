@@ -1,0 +1,28 @@
+# Reflan Guntia Wijaya_2309076040
+# Tugas Metode Numerik
+import numpy as np
+
+print ("METODE TABEL")
+x_bawah = float(-0.6) #batas bawah
+x_atas = float(-0.5) #batas atas
+N = float(10) #iterasi
+
+h = (x_atas-x_bawah)/N
+i = 0
+hasil = 0
+
+print ("i   x       f(x)")
+while (i<=N and x_bawah<x_atas) :
+    x = x_bawah + (i*h)
+    fx_bawah = (x + (np.exp(1)**x))
+    fx_atas = ((x+1) + (np.exp(1)**(x+1)))
+    
+    if (fx_bawah==0) :
+        hasil = x
+    elif (fx_bawah*fx_atas) <0 :
+        if abs(fx_bawah) < abs(fx_atas) :
+            hasil = x
+        else:
+            hasil = (x+1)
+    print (i,round(x,2), " ",round(fx_bawah,7))
+    i=i+1

@@ -1,0 +1,30 @@
+# Reflan Guntia Wijaya_2309076040
+# Tugas Metode Numerik
+import numpy as np
+
+def f(x):
+    return x * np.exp(-x) + 1
+    
+a = -1
+b = 1
+toleransi = 1e-5
+
+print ("METODE BISECTION")
+def metode_bisection(a, b, toleransi):
+    if f(a) * f(b) >= 0:
+        print("Metode bisection memiliki akar")
+        return None
+    
+    while (b-a)/2> toleransi:
+        x = (a+b)/2
+        if f(x) == 0:
+            return x
+        elif f(a) * f(x) < 0:
+            b = x
+        else:
+            a = x
+            
+    return (a+b)/2
+
+hasil = metode_bisection(a, b, toleransi)
+print("Akar:", hasil)

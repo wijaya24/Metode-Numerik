@@ -1,0 +1,26 @@
+# Reflan Guntia Wijaya_2309076040
+# Tugas Metode Numerik
+def f(x):
+    return x**2-2*x-3
+
+def g(x):
+    return (x**2-3)/2
+
+nilai_awal = 0  # nilai awal
+toleransi = 1e-5  # nilai toleransi
+maksimal_iterasi = 100  # jumlah iterasi maksimal
+
+print ("METODE ITERASI SEDERHANA")
+def iterasi_sederhana(nilai_awal, toleransi, maksimal_iterasi):
+    iterasi = 0
+    nilai_baru = g(nilai_awal)
+    
+    while abs(nilai_baru - nilai_awal) > toleransi and iterasi < maksimal_iterasi:
+        nilai_awal = nilai_baru
+        nilai_baru = g(nilai_awal)
+        iterasi += 1
+    
+    return nilai_baru, iterasi
+
+akar, jumlah_iterasi = iterasi_sederhana(nilai_awal, toleransi, maksimal_iterasi)
+print(f"Akar: {akar}, Jumlah Iterasi: {jumlah_iterasi}")

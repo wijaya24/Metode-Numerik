@@ -20,4 +20,4 @@ def metode_secant(x0, x1, toleransi, maksimal_iterasi):
     return x1
 
 akar = metode_secant(x0, x1, toleransi, maksimal_iterasi)
-print(f"Akar persamaan adalah: {akar}")
+print(f"Akar : {akar}")

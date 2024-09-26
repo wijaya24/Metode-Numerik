@@ -1,0 +1,23 @@
+# Reflan Guntia Wijaya_2309076040
+# Tugas Metode Numerik
+import numpy as np
+
+def f(x):
+    return x**2 - (x + 1) * np.exp(-x)
+
+x0 = 0 # nilai awal
+x1 = 1 # nilai baru
+toleransi = 1e-5
+maksimal_iterasi = 100
+
+print ("METODE SECANT")
+def metode_secant(x0, x1, toleransi, maksimal_iterasi):
+    for i in range(maksimal_iterasi):
+        if abs(f(x1)) < toleransi:
+            return x1
+        nilai = x1-f(x1)*(x1-x0)/(f(x1)-f(x0))
+        x0, x1 = x1, nilai
+    return x1
+
+akar = metode_secant(x0, x1, toleransi, maksimal_iterasi)
+print(f"Akar persamaan adalah: {akar}")

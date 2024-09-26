@@ -1,0 +1,35 @@
+# Reflan Guntia Wijaya_2309076040
+# Tugas Metode Numerik
+import numpy as np
+
+def f(x):
+    return x - np.exp(-x)
+
+def df_(x):
+    return 1 + np.exp(-x)
+    
+tebakan_awal = 0.5
+toleransi = 1e-7
+maksimal_iterasi = 100
+
+print ("METODE NEWTON RAPHSON")
+def newton_raphson (tebakan_awal, toleransi, maksimal_iterasi):
+    nilai = tebakan_awal
+    for iterasi in range(maksimal_iterasi):
+        f_xn = f(nilai)
+        df_xn = df_(nilai)
+        
+        if abs(f_xn) < toleransi:
+            print(f"Akar : {nilai} pada iterasi ke-{iterasi}")
+            return nilai
+        
+        if df_xn == 0:
+            print("Turunan sama dengan nol, metode gagal.")
+            return None
+        
+        nilai = nilai-f_xn/df_xn
+    
+    print("Maksimal iterasi tercapai, akar tidak ditemukan.")
+    return None
+
+akar = newton_raphson (tebakan_awal, toleransi, maksimal_iterasi)
